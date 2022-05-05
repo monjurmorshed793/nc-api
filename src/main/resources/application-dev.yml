@@ -1,0 +1,17 @@
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: DEBUG
+
+jwt:
+  private.key: classpath:app.key
+  public.key: classpath:app.pub
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27024
+      database: nutritionist
