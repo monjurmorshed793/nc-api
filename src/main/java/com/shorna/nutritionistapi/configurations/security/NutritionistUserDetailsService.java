@@ -16,4 +16,6 @@ public class NutritionistUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return new NutritionistUserDetails(nutritionistUserRepository.getNutritionistUserByEmail(username));
     }
+
+
 }

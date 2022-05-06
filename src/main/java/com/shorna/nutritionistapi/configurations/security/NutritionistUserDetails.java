@@ -14,6 +14,9 @@ public class NutritionistUserDetails  implements UserDetails {
     List<SimpleGrantedAuthority> authorities = new ArrayList<>();
     NutritionistUser nutritionistUser;
 
+    public NutritionistUserDetails() {
+    }
+
     public NutritionistUserDetails(NutritionistUser nutritionistUser) {
         nutritionistUser = new NutritionistUser(nutritionistUser.id(),
                 nutritionistUser.email(),
@@ -24,7 +27,7 @@ public class NutritionistUserDetails  implements UserDetails {
                 nutritionistUser.accountNonExpired(),
                 nutritionistUser.accountNonLocked(),
                 nutritionistUser.credentialsNonExpired(),
-                nutritionistUser.enabled());
+                nutritionistUser.enabled(), null, null, null, null, null, null);
         for(String authority: nutritionistUser.roles()){
             this.authorities.add(new SimpleGrantedAuthority(authority));
         }

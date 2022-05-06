@@ -1,16 +1,13 @@
 package com.shorna.nutritionistapi.models;
 
 import com.shorna.nutritionistapi.enums.GenderType;
-import com.shorna.nutritionistapi.enums.UserType;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.*;
+import org.springframework.data.mongodb.config.EnableMongoAuditing;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -25,5 +22,11 @@ public record NutritionistUser(
     @NotNull Boolean accountNonExpired,
     @NotNull Boolean accountNonLocked,
     @NotNull Boolean credentialsNonExpired,
-    @NotNull Boolean enabled
+    @NotNull Boolean enabled,
+    String refreshToken,
+    Instant expiresOn,
+    @CreatedDate Instant createdOn,
+    @LastModifiedDate Instant updatedOn,
+    @CreatedBy String createdBy,
+    @LastModifiedBy String updatedBy
         ){}
